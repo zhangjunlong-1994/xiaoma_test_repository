@@ -1,0 +1,30 @@
+spring:
+  # redis配置
+  redis:
+    database: 1
+    host: 127.0.0.1
+    port: 6379
+    password:
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+    timeout: 5000ms
+    # redis 哨兵配置
+    sentinel:
+      # 哨兵配置列表
+      nodes: 127.0.0.1:26379,127.0.0.1:26380,127.0.0.1:26381
+      # 主节点名称
+      master: mymaster
+
+# 注册中心
+eureka:
+  client:
+    # 是否从注册中心获取注册表（是否从ES获取服务）
+    fetch-registry: true
+    # 注册中心地址
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9000/eureka/
+
+es-path: http://192.168.0.108:9000/es_files/

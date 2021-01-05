@@ -1,0 +1,31 @@
+# 服务端口
+server:
+  port: 9004
+spring:
+  # 服务名称
+  application:
+    name: sc-home-personal
+  profiles:
+    active: dev
+#    active: build
+  # 上传文件大小限制
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+  # 防止依赖的Sp未注册，导致的启动失败
+  main:
+    allow-bean-definition-overriding: true
+
+# 负载均衡
+ribbon:
+  eureka:
+    enabled: true
+  ReadTimeout: 5000
+  ConnectTimeout: 5000
+  eager-load:
+    enabled: true
+    clients: es,sp-common-manage,sp-home-personal,sp-communication-gateway
+
+token:
+  key: pony_cloud_2019/02/
