@@ -23,6 +23,8 @@ import java.math.BigDecimal;
 @RequestMapping("/test")
 public class UserController {
 
+
+
     /**
      * 获取用户详细信息接口方法
      * @param user 用户基础信息
